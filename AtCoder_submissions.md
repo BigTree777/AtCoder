@@ -40,6 +40,10 @@ python AtCoder_submissions.py
 
 ## Detailed Design
 
+### File
+
+- submissions.py: main file
+
 ### Variable
 
 ||Detail|
