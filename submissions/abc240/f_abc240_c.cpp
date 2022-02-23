@@ -1,3 +1,5 @@
+// N回目に到達しうる位置の中にXが含まれているかを算出しようとしてしまった
+
 #include<bits/stdc++.h>
 using namespace std;
 using ll = long long;
