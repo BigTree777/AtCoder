@@ -11,7 +11,7 @@ using namespace std;
 using ll = long long;
 using ull = unsigned long long;
 
-int* BFS(vector<vector<int>> G, int* dist, int N, int start) {
+vector<int> BFS(vector<vector<int>> G, vector<int> dist, int N, int start) {
 	// Find the shortest distance from start by BFS
     // G: Graph
     // dist: index->[start point], value->[shortest distance]
@@ -43,25 +43,25 @@ int main(){
     int N, A, B;
     cin >> N;
 
-    vector<vector<int>>  G(N, vector<int>());
-    for(int i = 0; i < N; i++){
+    vector<vector<int>>  G(N + 1, vector<int>());
+    for(int i = 0; i < N - 1; i++){
         cin >> A >> B;
         G[A].push_back(B);
         G[B].push_back(A);
     }
 
-    int* dist;
+    vector<int> dist(N + 1, 0);
     dist = BFS(G, dist, N, 1);
 
     int max_dist = -1, max_id = -1;
-    for(int i = 0; i < N; i++){
+    for(int i = 1; i < N + 1; i++){
         max_dist = max(max_dist, dist[i]);
         if(dist[i]==max_dist) max_id = i;
     }
 
     dist = BFS(G, dist, N, max_id);
     int ans = -1;
-    for(int i = 0; i < N; i++){
+    for(int i = 1; i < N + 1; i++){
         ans = max(ans, dist[i]);
     }
 
