@@ -29,7 +29,7 @@ int main(){
             tmp -= vec[i] * pow(10, i);
         }
         ll ans_ = 0;
-        for(int i = 0; i < vec.size(); i++){
+        for(uint i = 0; i < vec.size(); i++){
             ans_ += vec[i];
             vec[i] = 0;
         }
@@ -38,6 +38,7 @@ int main(){
             ans = ans_;
         }
         if(ans <= nd) stop = true;
+        else if(num >= 11) stop = true;
         num += 1;
     }
     cout << ans << endl;
